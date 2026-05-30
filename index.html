@@ -6,29 +6,101 @@
   <title>Zihan Yin | Personal Website</title>
 
   <style>
+    :root {
+      --kit-green: rgb(0, 150, 130);
+      --kit-blue: rgb(70, 100, 170);
+      --dark: #1f2933;
+      --text: #2d3748;
+      --muted: #667085;
+      --light-bg: #f4f8f7;
+      --card-bg: #ffffff;
+      --border: #d9e4e2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #222;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      color: var(--text);
+      background:
+        linear-gradient(135deg, rgba(0,150,130,0.08), rgba(70,100,170,0.06)),
+        var(--light-bg);
+    }
+
+    .top-bar {
+      height: 8px;
+      background: linear-gradient(90deg, var(--kit-green), var(--kit-blue));
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 40px 22px 70px;
+    }
+
+    .hero {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 34px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(0,150,130,0.18), transparent 70%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(0,150,130,0.12);
+      color: var(--kit-green);
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 12px;
     }
 
     h1 {
-      font-size: 36px;
-      margin-bottom: 5px;
+      font-size: 42px;
+      line-height: 1.1;
+      margin: 0 0 10px;
+      color: var(--dark);
     }
 
-    h2 {
-      margin-top: 35px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
+    .subtitle {
+      font-size: 17px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-text {
+      max-width: 760px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .contact-line {
+      margin: 12px 0 20px;
+      font-size: 15px;
     }
 
     a {
-      color: #0057b8;
+      color: var(--kit-blue);
       text-decoration: none;
+      font-weight: 500;
     }
 
     a:hover {
@@ -37,91 +109,228 @@
 
     .button {
       display: inline-block;
-      padding: 10px 16px;
-      background: #0057b8;
+      padding: 11px 18px;
+      background: var(--kit-green);
       color: white;
-      border-radius: 6px;
-      margin-top: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 6px 16px rgba(0,150,130,0.25);
+      transition: 0.2s ease;
     }
 
     .button:hover {
-      background: #003f88;
+      background: #007f70;
       text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    section {
+      margin-top: 28px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px 30px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--dark);
+      font-size: 24px;
+      border-left: 5px solid var(--kit-green);
+      padding-left: 12px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .chips li {
+      background: rgba(0,150,130,0.10);
+      border: 1px solid rgba(0,150,130,0.22);
+      color: #075f56;
+      border-radius: 999px;
+      padding: 7px 13px;
+      font-size: 14px;
+    }
+
+    .project {
+      padding: 16px 0;
+      border-bottom: 1px solid #edf1f0;
+    }
+
+    .project:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .project strong {
+      color: var(--dark);
+      font-size: 17px;
+    }
+
+    .education strong {
+      color: var(--dark);
+    }
+
+    .contact-box {
+      display: flex;
+      gap: 26px;
+      align-items: flex-start;
+      flex-wrap: wrap;
     }
 
     .wechat-qr {
       width: 160px;
-      margin-top: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      margin-top: 8px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 6px;
+      background: white;
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 26px 14px 50px;
+      }
+
+      .hero,
+      section {
+        padding: 24px 20px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
     }
   </style>
 </head>
 
 <body>
+  <div class="top-bar"></div>
 
-  <h1>Zihan Yin</h1>
+  <main class="container">
 
-  <p>
-    Master student at Karlsruhe Institute of Technology (KIT)<br>
-    Research interests: Computer Vision, Robotics, Large Language Models, Optical Character Recognition
-  </p>
+    <header class="hero">
+      <div class="badge">KIT · Computer Vision · Multimodal AI</div>
 
-  <p>
-    I am a master’s student at KIT currently conducting my thesis at the Computer Vision for Human-Computer Interaction Lab, focusing on robust camera localisation and multimodal artificial intelligence. My research interests include computer vision, OCR-guided visual understanding, and reliable perception systems for real-world human-centered applications.
-  </p>
+      <h1>Zihan Yin</h1>
 
-  <p>
-    Email: <a href="mailto:aideny0111@gmail.com">aideny0111@gmail.com</a>
-  </p>
+      <p class="subtitle">
+        Master’s student at Karlsruhe Institute of Technology (KIT)
+      </p>
 
-  <a class="button" href="./Zihan_Yin_CV.pdf" target="_blank">Download CV</a>
+      <p class="hero-text">
+        I am currently conducting my master’s thesis at the Computer Vision for
+        Human-Computer Interaction Lab, focusing on robust camera localisation
+        and multimodal artificial intelligence. My research interests include
+        computer vision, OCR-guided visual understanding, robotic perception,
+        and reliable perception systems for real-world human-centered applications.
+      </p>
 
-  <h2>About Me</h2>
-  <p>
-    I am interested in computer vision, OCR-based visual understanding, large language models, multimodal AI, and robotics.
-    My current work involves multimodal artificial intelligence, visual perception systems, and detection pipelines.
-    I am currently looking for a PhD position.
-  </p>
+      <p class="contact-line">
+        Email:
+        <a href="mailto:aideny0111@gmail.com">aideny0111@gmail.com</a>
+      </p>
 
-  <h2>Education</h2>
-  <p>
-    <strong>Karlsruhe Institute of Technology (KIT)</strong><br>
-    M.Sc. Program
-  </p>
+      <a class="button" href="./Zihan_Yin_CV.pdf" target="_blank">Download CV</a>
+    </header>
 
-  <h2>Research Interests</h2>
-  <ul>
-    <li>Computer Vision and Object Detection</li>
-    <li>OCR-guided Visual Understanding</li>
-    <li>Robotic Perception</li>
-    <li>Multimodal Artificial Intelligence</li>
-    <li>Reliable Perception Systems</li>
-  </ul>
+    <section>
+      <h2>About Me</h2>
+      <p>
+        I am interested in computer vision, OCR-based visual understanding,
+        large language models, multimodal AI, and robotics. My current work
+        involves multimodal artificial intelligence, visual perception systems,
+        and detection pipelines. I am currently looking for a PhD position.
+      </p>
+    </section>
 
-  <h2>Projects</h2>
+    <section class="education">
+      <h2>Education</h2>
+      <p>
+        <strong>Karlsruhe Institute of Technology (KIT)</strong><br>
+        M.Sc. Program
+      </p>
+    </section>
 
-  <p>
-    <strong>Vision-based Box Detection System</strong><br>
-    Developed a camera-based perception pipeline for object detection and localization.
-  </p>
+    <section>
+      <h2>Research Interests</h2>
+      <ul class="chips">
+        <li>Computer Vision</li>
+        <li>Object Detection</li>
+        <li>OCR-guided Visual Understanding</li>
+        <li>Robotic Perception</li>
+        <li>Multimodal Artificial Intelligence</li>
+        <li>Reliable Perception Systems</li>
+      </ul>
+    </section>
 
-  <p>
-    <strong>LLM-based Multimodal Recognition System</strong><br>
-    Developed a multimodal recognition pipeline using scene recognition, object extraction, semantic segmentation, and OCR for daily-life and medical applications.
-  </p>
+    <section>
+      <h2>Projects</h2>
 
-  <h2>Contact</h2>
+      <div class="project">
+        <strong>Vision-based Box Detection System</strong><br>
+        Developed a camera-based perception pipeline for object detection and
+        localization, with an emphasis on robust visual detection and downstream
+        robotic manipulation.
+      </div>
 
-  <p>
-    Feel free to contact me by email:<br>
-    <a href="mailto:aideny0111@gmail.com">aideny0111@gmail.com</a>
-  </p>
+      <div class="project">
+        <strong>LLM-based Multimodal Recognition System</strong><br>
+        Developed a multimodal recognition pipeline using scene recognition,
+        object extraction, semantic segmentation, and OCR for daily-life and
+        medical applications.
+      </div>
+    </section>
 
-<p>
-  WeChat:<br>
-  <img src="./wechat_qr.jpg" alt="WeChat QR Code" class="wechat-qr">
-</p>
-  
+    <section>
+      <h2>Contact</h2>
+
+      <div class="contact-box">
+        <div>
+          <p>
+            Feel free to contact me by email:<br>
+            <a href="mailto:aideny0111@gmail.com">aideny0111@gmail.com</a>
+          </p>
+        </div>
+
+        <div>
+          <p>
+            WeChat:<br>
+            <img src="./wechat_qr.jpg" alt="WeChat QR Code" class="wechat-qr">
+          </p>
+          <p class="small-note">Scan to connect on WeChat.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Zihan Yin · Personal Website
+    </footer>
+
+  </main>
 </body>
 </html>
